@@ -16,7 +16,7 @@ from libqtile.command import lazy
 from libqtile.command.client import CommandClient
 
 # === Local === #
-from .variables import *
+# from .variables import *
 from .groups import *
 
 
@@ -24,7 +24,7 @@ from .groups import *
 # ---------- Start -----------
 # ----------------------------
 
-@ hook.subscribe.startup_once
+@hook.subscribe.startup_once
 def start_once():
     subprocess.call([autostart])
 

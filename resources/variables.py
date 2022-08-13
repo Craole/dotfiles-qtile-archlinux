@@ -42,7 +42,7 @@ qRight = 'j'
 # ----------------------------
 
 home = os.path.expanduser('~/')
-lbin = home + '.local/bin/cc/'
+lbin = home + '.local/bin/'
 conf = home + '.config/'
 dotfiles = home + 'Dotfiles/dotfiles.code-workspace'
 dotfrommyfriends = home + \
@@ -50,20 +50,21 @@ dotfrommyfriends = home + \
 screenshots = home + 'Pictures/Screenshots/'
 
 # >>= DMenu =<< #
-dconf = conf + 'dmenu/'
-dmScripts = dconf + 'scripts/'
+d_conf = conf + 'dmenu/'
+
+d_scripts = d_conf + 'scripts/'
 
 # >>= Qtile =<< #
-qconf = conf + 'qtile/'
-qIcons = qconf + 'icons/'
-qThemes = qconf + 'themes/'
-qImports = qconf + 'modules/'
-qScripts = qconf + 'scripts/'
-qKeys = qconf + 'utils/keys.py'
-autostart = qScripts + 'autostartA.sh'
-refresh = qScripts + 'autostartB.sh'
-picom = qScripts + 'picom-toggle.sh'
-wallpaper = qScripts + 'set-pywal.sh'
+q_conf = conf + 'qtile/'
+q_icons = q_conf + 'icons/'
+q_themes = q_conf + 'themes/'
+q_utils = q_conf + 'resources/'
+q_scripts = q_conf + 'scripts/'
+q_keymap = q_utils + 'keys.py'
+autostart = q_scripts + 'autostart_logon.sh'
+refresh = q_scripts + 'autostart_reload.sh'
+picom = q_scripts + 'picom-toggle.sh'
+wallpaper = q_scripts + 'set-pywal.sh'
 
 # >>= LBin =<< #
 nm = lbin + 'network.sh'
@@ -146,21 +147,21 @@ Launcher = [
 
 dMenu = [
     Launcher[2],
-    dmScripts + './dmconf',
-    dmScripts + './dmscrot',
-    dmScripts + './dmkill',
-    dmScripts + './dmlogout',
-    dmScripts + './dman',
-    dmScripts + './dmred',
-    dmScripts + './dmsearch',
+    d_scripts + './dmconf',
+    d_scripts + './dmscrot',
+    d_scripts + './dmkill',
+    d_scripts + './dmlogout',
+    d_scripts + './dman',
+    d_scripts + './dmred',
+    d_scripts + './dmsearch',
     'passmenu'
 
 
 ]
 # >>= WEB BROWSER =<< #
 Browser = [
-    'brave-nightly',
     'firefox',
+    'brave-nightly',
     'vivaldi-stable',
 ]
 
@@ -209,6 +210,9 @@ sysManager = [
     'Nm-connection-editor',
 ]
 guiFM = [
+    'thunar'
+    # "xdg-mime query default inode/directory | sed 's/.desktop//g'"
+    # 'xdg-open .'
     'pcmanfm-qt',
     'sudo doublecmd --no-splash',
     'doublecmd',
@@ -390,7 +394,7 @@ workspaces = [
         'name': 'WWW',
         'layout': 'monadwide',
         'wm_class': [
-            # 'firefox',
+            'firefox',
             'qutebrowser'
             'brave-browser',
             'Brave-browser-nightly',

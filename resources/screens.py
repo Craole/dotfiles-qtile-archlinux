@@ -1,11 +1,30 @@
-# ====================================================
-#
 #!/usr/bin/env python
+
+# ====================================================
 # SCREENS
 # ~/.config/qtile/utils/screens.py
-#
 # ====================================================
 
+# ----------------------------
+# --------- Reference --------
+# ----------------------------
+# from libqtile.config import Screen
+# from libqtile import bar, widget
+
+# screens = [
+#     Screen(
+#         top=bar.Bar([
+#             widget.GroupBox(),
+#             widget.WindowName()
+#         ], 30),
+#     ),
+#     Screen(
+#         top=bar.Bar([
+#             widget.GroupBox(),
+#             widget.WindowName()
+#         ], 30),
+#     )
+# ]
 
 # ----------------------------
 # ---------- Imports ---------
@@ -18,7 +37,7 @@ from libqtile import bar
 from libqtile.config import Screen
 
 # === Local === #
-from .groups import *
+# from .groups import *
 from .widgets import *
 
 

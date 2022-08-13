@@ -1,9 +1,8 @@
-# ====================================================
-#
 #!/usr/bin/env python
+
+# ====================================================
 # BATTERY
 # ~/.config/qtile/utils/battery.py
-#
 # ====================================================
 
 # ----------------------------
@@ -12,15 +11,14 @@
 
 # === Standard === #
 from __future__ import division
-import cairocffi
+
 import os
 from pathlib import Path
 
+import cairocffi
 # === Third-Party === #
 from libqtile import bar
 from libqtile.widget import base
-
-
 
 BAT_NAME = ""
 

@@ -1,9 +1,8 @@
-# ====================================================
-#
 #!/usr/bin/env python
+
+# ====================================================
 # KEYS
 # ~/.config/qtile/utils/keys.py
-#
 # ====================================================
 
 
@@ -16,12 +15,10 @@ from typing import List  # noqa: F401
 
 # === Third-Party === #
 from libqtile.command import lazy
-# from libqtile.lazy import lazy
 from libqtile.config import Click, Drag, KeyChord, Key
 
 # === Local === #
 from .variables import *
-from .groups import *
 
 
 # ----------------------------
@@ -33,7 +30,7 @@ keys = [
     #=== Key File ===#
     Key(
         supW, 'comma',
-        lazy.spawn(qKeys),
+        lazy.spawn(q_keymap),
         desc='Open Keys.py'
     ),
 
@@ -63,11 +60,13 @@ keys = [
     ),
     Key(
         supW, 'Tab',
-        lazy.screen.next_group()
+        lazy.screen.next_group(),
+        desc='Move to next group (clockwise)'
     ),
     Key(
         supS, 'Tab',
-        lazy.screen.prev_group()
+        lazy.screen.prev_group(),
+        desc='Move to previous group (anti-clockwise)'
     ),
 
     #=== Window/Layout ===#
@@ -284,7 +283,8 @@ keys = [
     ),
     Key(
         supW, 'e',
-        lazy.spawn(guiFM[0])
+        lazy.spawn(guiFM[0]),
+        desc='Default IDE or Visual Editor'
     ),
     Key(
         supS, 'e',

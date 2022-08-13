@@ -1,10 +1,9 @@
-# ====================================================
-#
 #!/usr/bin/env python
+
+# ====================================================
 # coding=utf-8
 # WIDGETS
 # ~/.config/qtile/utils/widgets.py
-#
 # ====================================================
 
 # ----------------------------
@@ -15,15 +14,16 @@
 import subprocess
 
 # === Third-Party === #
-from libqtile import widget, qtile
+from libqtile import qtile, widget
 from libqtile.widget.base import Mirror
+
+from .battery import *
+from .groups import *
+from .keys import *
+from .layouts import *
 
 # === Local === #
 from .variables import *
-from .groups import *
-from .layouts import *
-from .keys import *
-from .battery import *
 
 # ----------------------------
 # --------- Defaults ---------
@@ -40,16 +40,14 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
-
 # ----------------------------
 # ---------- Bar 1 -----------
 # ----------------------------
 
-
 def init_widgets_list():
     widgets_list = [
         widget.CurrentLayoutIcon(
-            custom_icon_paths=qIcons,
+            custom_icon_paths=q_icons,
             background=colDark[0],
             scale=0.5
         ),
@@ -68,12 +66,6 @@ def init_widgets_list():
                 'Button3': lambda: qtile.cmd_spawn(Launcher[1]),
             }
         ),
-        # widget.TextBox(
-        #     font=fontIcon[0],
-        #     text='•',
-        #     fontsize=18,
-        #     background=colDark[0],
-        # ),
         widget.WindowName(
             foreground=colLight[0],
             background=colDark[0],
@@ -89,20 +81,6 @@ def init_widgets_list():
             foreground=colAccent[0],
             background=colDark[0],
             widgets=[
-                widget.TextBox(
-                    text=' ₿',
-                    padding=0,
-                    fontsize=12
-                ),
-                widget.BitcoinTicker(
-                    padding=5,
-                    mouse_callbacks={
-                        'Button1': lambda:
-                        qtile.cmd_spawn(
-                            Calculator[0]
-                        )
-                    }
-                ),
                 widget.TextBox(
                     text=' 🖬',
                     padding=0,
@@ -121,11 +99,10 @@ def init_widgets_list():
                         ),
                     }
                 ),
-                # widget.TextBox(
-                #     text=' ⟳',
-                #     padding=2,
-                #     fontsize=14
-                # ),
+                widget.ThermalSensor(
+                    metric=True,
+                    threshold=40
+                ),
             ]
         ),
         widget.GenPollText(
@@ -151,7 +128,6 @@ def init_widgets_list():
                 # Right
                 'Button3': lambda: qtile.cmd_spawn(appManager[0]),
             }
-
         ),
         widget.WidgetBox(
             text_open='',
@@ -162,6 +138,7 @@ def init_widgets_list():
             close_button_location='left',
             foreground=colAccent[0],
             background=colDark[0],
+            foreground_alert=colAccent[1],
             widgets=[
                 widget.Net(
                     interface='wlo1',
@@ -193,8 +170,12 @@ def init_widgets_list():
                     padding=0,
                     scale=0.7,
                     y_poss=2,
-                    theme_path=qIcons,
+                    theme_path=q_icons,
                     update_interval=5,
+                ),
+                widget.Systray(
+                    # background=colAccent[0],
+                    # padding=2,
                 ),
             ]
         ),
@@ -230,10 +211,6 @@ def init_widgets_list():
                 'Button1': lambda: qtile.cmd_spawn(nmShow, shell=True),
                 'Button3': lambda: qtile.cmd_spawn(nmUI, shell=True)
             }
-        ),
-        widget.Systray(
-            # background=colAccent[0],
-            # padding=2,
         ),
     ]
     return widgets_list

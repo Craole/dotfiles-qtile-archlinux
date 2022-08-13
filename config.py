@@ -1,10 +1,9 @@
-#====================================================
-#
 #!/usr/bin/env python
+
+# ====================================================
 # QTile CONFIG
 # ~/.config/qtile/config.py
-#
-#====================================================
+# ====================================================
 
 # ----------------------------
 # ---------- Imports ---------
@@ -17,7 +16,8 @@
 # === Local === #
 from resources.hooks import *
 from resources.screens import *
-from resources.groups import *
+
+# from resources.groups import *
 
 
 # ----------------------------

@@ -1,10 +1,9 @@
-# ====================================================
-#
 #!/usr/bin/env python
 # coding=utf-8
+
+# ====================================================
 # GROUPS
 # ~/.config/qtile/utils/groups.py
-#
 # ====================================================
 
 
@@ -19,7 +18,6 @@ from libqtile.config import Group, Key, Match, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
 # === Local === #
-from .variables import *
 from .keys import *
 
 # ----------------------------
